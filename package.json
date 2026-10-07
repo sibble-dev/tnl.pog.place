@@ -5,8 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "start": "npx --yes serve out",
+    "lint": "eslint",
+    "data": "node scripts/build-data.mjs",
+    "test:match": "node scripts/test-match.ts",
+    "layout": "node scripts/build-layout.ts",
+    "test:layout": "node scripts/test-layout.ts",
+    "deploy": "npm run build && npx wrangler pages deploy out --project-name tnl-build-reader --branch main"
   },
   "dependencies": {
     "next": "16.3.6",
@@ -19,6 +24,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
+    "sharp": "^0.35.5",
     "typescript": "^5"
   }
 }
